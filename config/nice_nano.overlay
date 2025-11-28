@@ -2,6 +2,9 @@
     compatible = "nordic,nrf-twim";
     status = "okay";
 
+    sda-pin = <2>;
+    scl-pin = <3>;
+
     /* Required for Zephyr 3.5+ */
     pinctrl-0 = <&i2c1_default>;
     pinctrl-names = "default";
