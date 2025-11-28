@@ -2,8 +2,8 @@
     compatible = "nordic,nrf-twim";
     status = "okay";
 
-    sda-pin = <2>;
-    scl-pin = <3>;
+    sda-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+    scl-gpios = <&gpio0 3 GPIO_ACTIVE_HIGH>;
 
     /* Required for Zephyr 3.5+ */
     pinctrl-0 = <&i2c1_default>;
