@@ -7,17 +7,25 @@
     pinctrl-names = "default";
 
     ssd1306: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
+        compatible = "solomon,ssd1306fb-i2c";
         reg = <0x3c>;
         label = "DISPLAY";
+
+        /* Required SSD1306 properties (Zephyr 3.5) */
         width = <128>;
         height = <32>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <31>;
+
+        /* Recommended flags for Sofle screens */
         segment-remap;
         com-invdir;
     };
 };
 
-/* Define the pinctrl group for I2C1 */
+/* pinctrl group for I2C1 */
 &pinctrl {
     i2c1_default: i2c1_default {
         group1 {
